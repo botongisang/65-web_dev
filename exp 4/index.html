@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation with JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Portfolio - Contact Form</h1>
+            <button id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        </div>
+
+        <!-- Form Validation Section -->
+        <section id="form-section">
+            <h2>Contact Me</h2>
+            <form id="contactForm" onsubmit="validateForm(event)">
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="text" id="email" name="email" placeholder="Enter your email">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <!-- Phone Field -->
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter 10-digit phone number">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password">
+                    <span class="error-message" id="passwordError"></span>
+                    <div class="password-strength">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
+                    <span class="strength-text" id="strengthText"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password *</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password">
+                    <span class="error-message" id="confirmPasswordError"></span>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Your message..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Form</button>
+            </form>
+        </section>
+
+        <!-- Stored Data Display -->
+        <section id="stored-data">
+            <h2>Previously Submitted Data</h2>
+            <div id="dataDisplay">
+                <p class="no-data">No data saved yet. Submit the form to save data.</p>
+            </div>
+            <button onclick="clearStoredData()" class="clear-btn">Clear Saved Data</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
