@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Sanjay Soni - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Print-Optimized Resume - Clean Single Column Layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0.6in 0.7in;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: white;
+            max-width: 8.27in;
+            margin: 0 auto;
+            padding: 0.6in 0.7in;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 16px;
+        }
+
+        .name {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .title {
+            font-size: 12pt;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 20px;
+            font-size: 9.5pt;
+            color: #333;
+        }
+
+        .contact-row a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-icon {
+            font-size: 10pt;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 3px;
+            margin-bottom: 10px;
+        }
+
+        /* Profile */
+        .profile-text {
+            font-size: 10pt;
+            color: #333;
+            text-align: justify;
+            line-height: 1.55;
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 8px;
+        }
+
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-main {
+            font-weight: 600;
+            font-size: 10.5pt;
+        }
+
+        .edu-main span {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .edu-right {
+            text-align: right;
+            font-size: 9.5pt;
+            color: #333;
+        }
+
+        .edu-details {
+            font-size: 9.5pt;
+            color: #555;
+            padding-left: 12px;
+            margin-top: 2px;
+        }
+
+        .edu-details li {
+            margin-bottom: 1px;
+        }
+
+        /* Skills - Multi Column */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            width: 33.33%;
+            font-size: 10pt;
+            color: #333;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .skills-list li::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 10px;
+        }
+
+        .project-header {
+            font-weight: 600;
+            font-size: 10.5pt;
+        }
+
+        .project-header span {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .project-desc {
+            font-size: 9.5pt;
+            color: #333;
+            padding-left: 12px;
+            margin-top: 2px;
+            text-align: justify;
+        }
+
+        /* Community */
+        .community-list {
+            list-style: none;
+            padding-left: 12px;
+        }
+
+        .community-list li {
+            font-size: 9.5pt;
+            color: #333;
+            margin-bottom: 2px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .community-list li::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Languages */
+        .lang-list {
+            display: flex;
+            gap: 30px;
+            font-size: 10pt;
+        }
+
+        .lang-item strong {
+            font-weight: 600;
+        }
+
+        /* Tagline */
+        .tagline-footer {
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 9pt;
+            color: #666;
+            font-style: italic;
+        }
+
+        .tagline-footer a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Print specific */
+        @media print {
+            body {
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .download-bar {
+                display: none !important;
+            }
+        }
+
+        /* Screen-only download button */
+        .download-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .download-bar p {
+            color: white;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .download-btn {
+            background: white;
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform 0.2s;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.03);
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media screen {
+            body {
+                padding-top: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Download Bar (hidden when printing) -->
+    <div class="download-bar">
+        <a href="index.html" class="back-link">← Back to Full CV</a>
+        <p>Press <strong>Ctrl+P</strong> (or <strong>Cmd+P</strong> on Mac) to download as PDF</p>
+        <button class="download-btn" onclick="window.print()">📄 Download PDF</button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="name">Aditya Sanjay Soni</h1>
+        <p class="title">AI/ML Engineering Student</p>
+        <div class="contact-row">
+            <span class="contact-item"><span class="contact-icon">✉</span> off.adityassoni@gmail.com</span>
+            <span class="contact-item"><span class="contact-icon">🔗</span> linkedin.com/in/adityassoni</span>
+            <span class="contact-item"><span class="contact-icon">🔗</span> adityassoni.netlify.app</span>
+            <span class="contact-item"><span class="contact-icon">⌂</span> github.com/botongisang</span>
+            <span class="contact-item"><span class="contact-icon">📞</span> +91-8369540766</span>
+            <span class="contact-item"><span class="contact-icon">📍</span> Mumbai, India</span>
+        </div>
+    </header>
+
+    <!-- Profile -->
+    <section class="section">
+        <h2 class="section-title">Profile</h2>
+        <p class="profile-text">
+            Passionate AI/ML engineering student with hands-on experience in full-stack web development. Skilled in
+            building responsive, user-centric applications using modern frameworks. Experienced in leading development
+            projects from concept to execution. Proficient in leveraging AI tools to maximize productivity and
+            accelerate development workflows. Dedicated to building technology that enhances human capability while
+            keeping current with industry trends and best practices.
+        </p>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-item">
+            <div class="edu-row">
+                <div class="edu-main">Bachelor of Engineering (AI & ML), <span>St. Francis Institute of
+                        Technology</span></div>
+                <div class="edu-right">2024 – 2028<br>Mumbai, India</div>
+            </div>
+            <ul class="edu-details">
+                <li>Currently in Year 2, Semester 4</li>
+                <li>Coursework: Data Analysis, Machine Learning, Programming</li>
+                <li>Active participant in Google Developer Groups (GDG) seminars and tech workshops</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skills-list">
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Node.js</li>
+            <li>Go</li>
+            <li>REST APIs</li>
+            <li>Python</li>
+            <li>Machine Learning</li>
+            <li>Data Analysis</li>
+            <li>Kotlin</li>
+            <li>Git / GitHub</li>
+            <li>AI-Assisted Development</li>
+            <li>Android</li>
+        </ul>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-item">
+            <div class="project-header">MindRafta, <span>Project Lead</span></div>
+            <p class="project-desc">
+                An AI-powered learning copilot built with TypeScript, React, and Node.js. Led the development of an
+                intelligent learning assistant designed to enhance the educational experience through AI-driven
+                personalization and adaptive learning paths.
+            </p>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">Offshore Wind Farm Presentation, <span>Web Project</span></div>
+            <p class="project-desc">
+                Interactive web-based presentation exploring sustainable energy solutions. Built with HTML, CSS, and
+                JavaScript with responsive design for various screen sizes.
+            </p>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">Canasta, <span>Mobile App</span></div>
+            <p class="project-desc">
+                Mobile application development project for Android platform built with Kotlin.
+            </p>
+        </div>
+    </section>
+
+    <!-- Community & Events -->
+    <section class="section">
+        <h2 class="section-title">Community & Events</h2>
+        <ul class="community-list">
+            <li>Active participant in Google Developer Groups (GDG) seminars</li>
+            <li>Engaged in tech community events and workshops</li>
+        </ul>
+    </section>
+
+    <!-- Languages -->
+    <section class="section">
+        <h2 class="section-title">Languages</h2>
+        <div class="lang-list">
+            <span class="lang-item"><strong>English</strong> (Proficient)</span>
+            <span class="lang-item"><strong>Hindi</strong> (Native)</span>
+            <span class="lang-item"><strong>Gujarati</strong> (Conversational)</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="tagline-footer">
+        "Defy the limits" • "Build technology that trains humans to stay human"<br>
+        Full portfolio: <a href="https://adityassoni.netlify.app/">adityassoni.netlify.app</a>
+    </div>
+</body>
+
+</html>
