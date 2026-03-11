@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Lab Experiment-5 DOM Practice</title>
+
+    <script>
+        /* -------- Exercise 3: Change paragraph text -------- */
+        function changeText() {
+            document.getElementById("para").innerText =
+                "Paragraph text changed using DOM!";
+        }
+
+        /* -------- Exercise 4: Create new paragraph -------- */
+        function addParagraph() {
+            let newPara = document.createElement("p");
+            newPara.innerText = "New paragraph added dynamically.";
+            document.body.appendChild(newPara);
+        }
+
+        /* -------- Exercise 5: Remove paragraph -------- */
+        function removeParagraph() {
+            let p = document.getElementById("removePara");
+            if (p) p.remove();
+        }
+
+        /* -------- Exercise 6: Event Listener -------- */
+        window.onload = function () {
+            document.getElementById("eventBtn")
+                .addEventListener("click", function () {
+                    alert("Button clicked using addEventListener!");
+                });
+        };
+
+        /* -------- Exercise 7: Input Handling -------- */
+        function showInput() {
+            let text = document.getElementById("userInput").value;
+            document.getElementById("displayText").innerText = text;
+        }
+
+        /* -------- Exercise 8: Simple Task Addition -------- */
+        function addTask() {
+            let task = document.getElementById("taskInput").value.trim();
+            if (task === "") return;
+
+            let li = document.createElement("li");
+            li.innerText = task;
+
+            document.getElementById("taskList").appendChild(li);
+            document.getElementById("taskInput").value = "";
+        }
+    </script>
+</head>
+
+<body style="font-family: Arial; text-align:center; margin-top:40px;">
+
+    <h1>DOM Practice – Pre-Lab Experiment-5</h1>
+
+    <!-- Exercise 3 -->
+    <p id="para">Original paragraph text.</p>
+    <button onclick="changeText()">Change Text</button>
+    <br><br>
+
+    <!-- Exercise 4 -->
+    <button onclick="addParagraph()">Add New Paragraph</button>
+    <br><br>
+
+    <!-- Exercise 5 -->
+    <p id="removePara">This paragraph can be removed.</p>
+    <button onclick="removeParagraph()">Remove Paragraph</button>
+    <br><br>
+
+    <!-- Exercise 6 -->
+    <button id="eventBtn">Event Listener Button</button>
+    <br><br>
+
+    <!-- Exercise 7 -->
+    <input type="text" id="userInput" placeholder="Enter text">
+    <button onclick="showInput()">Show Text</button>
+    <p id="displayText"></p>
+    <br><br>
+
+    <!-- Exercise 8 -->
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+
+</body>
+</html>

@@ -2,16 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Web Lab Experiments</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Web Lab Experiments</title>
 
 <style>
 
-/* GENERAL */
+/* GLOBAL STYLES */
+
 body{
     font-family: Arial, sans-serif;
-    background: rosybrown;
+    background:#f4f4f4;
     margin:0;
     padding:0;
+    line-height:1.6;
+}
+
+section{
+    padding:60px 20px;
+    border-bottom:2px solid #ddd;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
 }
 
 /* ---------------- BUSINESS CARD ---------------- */
@@ -23,45 +36,52 @@ body{
     margin:100px auto;
     text-align:center;
     font-size:16px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 .profile-image{
     max-width:100%;
+    border-radius:50%;
 }
 
-p{
+.business-card p{
     margin:5px 0;
 }
 
-a{
+.business-card a{
     text-decoration:none;
+    color:#333;
+}
+
+.social-media a{
+    display:block;
+    margin:5px;
 }
 
 /* ---------------- TODO LIST ---------------- */
 
-.todo-list{
-    margin:40px;
+.todo-container{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.todo-list li{
+    margin-bottom:15px;
 }
 
 .sub-item-link{
     text-decoration:none;
 }
 
-.sub-item-link:link{
-    color:blue;
-}
-
-.sub-item-link:visited{
-    color:purple;
-}
-
-.sub-item-link:hover{
-    color:red;
-}
-
-.sub-item-link:active{
-    color:green;
-}
+.sub-item-link:link{color:blue;}
+.sub-item-link:visited{color:purple;}
+.sub-item-link:hover{color:red;}
+.sub-item-link:active{color:green;}
 
 .sub-item-link:focus{
     outline:2px solid orange;
@@ -70,23 +90,44 @@ a{
 /* ---------------- FORM ---------------- */
 
 .container{
-    margin:40px;
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.container input,
+.container select,
+.container textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
 }
 
 input:focus, textarea:focus{
-    border-color:blue;
+    border:2px solid blue;
 }
 
 input:invalid, select:invalid, textarea:invalid{
-    border-color:red;
+    border:2px solid red;
 }
 
 input:valid, select:valid, textarea:valid{
-    border-color:green;
+    border:2px solid green;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    background:#333;
+    color:white;
+    cursor:pointer;
 }
 
 button:hover{
-    background:lightgreen;
+    background:green;
 }
 
 .radio-group input[type="radio"]:checked{
@@ -105,19 +146,16 @@ input:first-of-type{
 
 /* ---------------- COLOR BOXES ---------------- */
 
-body{
-    background:#f4f4f4;
-}
-
 .color-grid{
     display:flex;
-    gap:10px;
-    margin:40px;
+    justify-content:center;
+    gap:20px;
 }
 
 .color-box{
-    width:100px;
-    height:100px;
+    width:120px;
+    height:120px;
+    border-radius:8px;
 }
 
 .color1{ background:#ff5733; }
@@ -129,7 +167,16 @@ body{
 /* ---------------- FEATURE SELECTION ---------------- */
 
 .feature-card-container{
-    margin:40px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+.feature-card{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
 .feature-card input[type="checkbox"]{
@@ -158,18 +205,20 @@ body{
 
 #email{
     padding:50px;
-    margin-top:50px;
+    margin:50px auto;
     width:500px;
     border:2px solid black;
     box-sizing:border-box;
+    background:white;
 }
 
-#confidential, #top-secret{
+#confidential,#top-secret{
     display:inline-block;
     padding:10px;
     margin-left:10px;
     border:2px solid red;
     transform:rotate(-10deg);
+    font-weight:bold;
 }
 
 .blurred{
@@ -181,7 +230,8 @@ body{
 .pricing-container{
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    justify-content:center;
+    gap:20px;
 }
 
 .pricing-card{
@@ -191,6 +241,7 @@ body{
     flex:0 0 200px;
     border:2px solid black;
     padding:20px;
+    background:white;
 }
 
 .basic-plan{ order:0; }
@@ -204,11 +255,13 @@ body{
     top:0;
     width:100%;
     background:black;
+    text-align:center;
 }
 
 #navbar a{
     color:white;
     margin:10px;
+    display:inline-block;
 }
 
 #welcome-section{
@@ -216,12 +269,29 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
+    background:#222;
+    color:white;
 }
 
-@media(max-width:600px){
-    .pricing-container{
-        flex-direction:column;
-    }
+#project-section{
+    text-align:center;
+}
+
+.project-tile{
+    margin:20px;
+}
+
+@media(max-width:700px){
+
+.pricing-container{
+flex-direction:column;
+}
+
+.feature-card-container{
+flex-direction:column;
+align-items:center;
+}
+
 }
 
 </style>
@@ -231,13 +301,17 @@ body{
 
 <!-- BUSINESS CARD -->
 
+<section>
+
+<h1>Business Card</h1>
+
 <div class="business-card">
 
 <img class="profile-image" src="https://cdn.freecodecamp.org/curriculum/labs/flower.jpg" alt="profile">
 
 <p class="full-name">Aditya Soni</p>
-<p class="designation">AI/ML Student</p>
-<p class="company">SFIT</p>
+<p class="designation">AI / ML Student</p>
+<p class="company">SFIT Mumbai</p>
 
 <hr>
 
@@ -251,67 +325,75 @@ body{
 <div class="social-media">
 <h2>Connect with me</h2>
 
-<a href="https://twitter.com">Twitter</a><br>
-<a href="https://linkedin.com">LinkedIn</a><br>
+<a href="https://twitter.com">Twitter</a>
+<a href="https://linkedin.com">LinkedIn</a>
 <a href="https://github.com">GitHub</a>
 
 </div>
 
 </div>
 
+</section>
+
 <!-- TODO LIST -->
+
+<section>
+
+<h1>Stylized To‑Do List</h1>
+
+<div class="todo-container">
 
 <ul class="todo-list">
 
 <li>
 <input type="checkbox" id="task1">
-<label for="task1">Study</label>
-
+<label for="task1">Study AI</label>
 <ul class="sub-item">
-<li><a class="sub-item-link" href="https://google.com" target="_blank">Notes</a></li>
+<li><a class="sub-item-link" href="https://google.com" target="_blank">Research Paper</a></li>
 </ul>
-
 </li>
 
 <li>
 <input type="checkbox" id="task2">
 <label for="task2">Workout</label>
-
 <ul class="sub-item">
 <li><a class="sub-item-link" href="https://youtube.com" target="_blank">Exercise</a></li>
 </ul>
-
 </li>
 
 <li>
 <input type="checkbox" id="task3">
-<label for="task3">Coding</label>
-
+<label for="task3">Practice Coding</label>
 <ul class="sub-item">
-<li><a class="sub-item-link" href="https://leetcode.com" target="_blank">Practice</a></li>
+<li><a class="sub-item-link" href="https://leetcode.com" target="_blank">DSA Problems</a></li>
 </ul>
-
 </li>
 
 <li>
 <input type="checkbox" id="task4">
-<label for="task4">Read</label>
-
+<label for="task4">Read Book</label>
 <ul class="sub-item">
 <li><a class="sub-item-link" href="https://wikipedia.org" target="_blank">Article</a></li>
 </ul>
-
 </li>
 
 </ul>
 
-<!-- JOB FORM -->
+</div>
+
+</section>
+
+<!-- JOB APPLICATION FORM -->
+
+<section>
+
+<h1>Job Application Form</h1>
 
 <div class="container">
 
 <form>
 
-<label for="name">Name</label>
+<label for="name">Full Name</label>
 <input type="text" id="name" required>
 
 <label for="email">Email</label>
@@ -343,7 +425,13 @@ body{
 
 </div>
 
+</section>
+
 <!-- COLOR BOXES -->
+
+<section>
+
+<h1>Colored Boxes</h1>
 
 <div class="color-grid">
 
@@ -355,36 +443,50 @@ body{
 
 </div>
 
+</section>
+
 <!-- FEATURE SELECTION -->
+
+<section>
 
 <h1>Feature Selection</h1>
 
 <div class="feature-card-container">
 
 <label class="feature-card">
-<input type="checkbox"> Feature A
+<input type="checkbox"> Dark Mode
 </label>
 
 <label class="feature-card">
-<input type="checkbox"> Feature B
+<input type="checkbox"> Notifications
 </label>
 
 </div>
 
+</section>
+
 <!-- CONFIDENTIAL EMAIL -->
+
+<section>
+
+<h1>Confidential Email</h1>
 
 <main id="email">
 
 <div id="confidential">CONFIDENTIAL</div>
 <div id="top-secret">TOP SECRET</div>
 
-<p>This email contains <span class="blurred">classified information</span>.</p>
-<p>Please keep this <span class="blurred">secure and private</span>.</p>
-<p>Only authorized <span class="blurred">personnel</span> may read.</p>
+<p>This message contains <span class="blurred">classified information</span>.</p>
+<p>Please keep it <span class="blurred">strictly confidential</span>.</p>
+<p>Authorized <span class="blurred">personnel only</span>.</p>
 
 </main>
 
-<!-- PRICING -->
+</section>
+
+<!-- PRICING PLANS -->
+
+<section>
 
 <h1>Pricing Plans</h1>
 
@@ -407,11 +509,13 @@ body{
 
 </div>
 
+</section>
+
 <!-- PORTFOLIO -->
 
 <nav id="navbar">
-<a href="#welcome-section">Home</a>
-<a href="#project-section">Projects</a>
+<a href="#">Home</a>
+<a href="#">Projects</a>
 </nav>
 
 <section id="welcome-section">
@@ -419,9 +523,11 @@ body{
 </section>
 
 <section id="project-section">
+
 <div class="project-tile">
-<a href="#">Project 1</a>
+<a href="#">AI Project</a>
 </div>
+
 </section>
 
 <a id="profile-link" href="https://github.com" target="_blank">My GitHub</a>

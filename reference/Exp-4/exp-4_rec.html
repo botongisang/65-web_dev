@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Pre-Lab Exercises</title>
+
+    <script>
+        /* -------- Exercise 3: Welcome alert on page load -------- */
+        window.onload = function () {
+            alert("Welcome to JavaScript Pre-Lab!");
+        };
+
+        /* -------- Exercise 4: Variables -------- */
+        function showDetails() {
+            let name = "Riddhi";
+            let age = 20;
+            alert("Name: " + name + "\nAge: " + age);
+        }
+
+        /* -------- Exercise 5: Button click message -------- */
+        function clickMessage() {
+            alert("Button was clicked!");
+        }
+
+        /* -------- Exercise 7 & 8: Change paragraph text -------- */
+        function changeText() {
+            document.getElementById("para").innerText =
+                "Text changed using JavaScript DOM!";
+        }
+
+        /* -------- Exercise 9: Good Morning / Evening -------- */
+        function greetUser() {
+            let hour = new Date().getHours();
+
+            if (hour < 12) {
+                alert("Good Morning");
+            } else {
+                alert("Good Evening");
+            }
+        }
+    </script>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+
+    <h1>JavaScript Pre-Lab Practice</h1>
+
+    <!-- Exercise 4 -->
+    <button onclick="showDetails()">Show Name & Age</button>
+    <br><br>
+
+    <!-- Exercise 5 -->
+    <button onclick="clickMessage()">Click Me</button>
+    <br><br>
+
+    <!-- Exercise 7 & 8 -->
+    <p id="para">This is original paragraph text.</p>
+    <button onclick="changeText()">Change Paragraph Text</button>
+    <br><br>
+
+    <!-- Exercise 9 -->
+    <button onclick="greetUser()">Greet Me</button>
+
+</body>
+</html>

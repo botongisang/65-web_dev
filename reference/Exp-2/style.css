@@ -1,0 +1,38 @@
+/* style */
+
+ body {
+    font-family: Arial;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Flexbox */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    background: #ddd;
+    padding: 10px;
+}
+
+.box {
+    background: #4CAF50;
+    color: white;
+    padding: 20px;
+    width: 80px;
+    text-align: center;
+}
+
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.grid-box {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}

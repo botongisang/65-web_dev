@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Lab Experiment-6</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 40px;
+            background: #f4f4f4;
+        }
+
+        .dark {
+            background: #121212;
+            color: white;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+
+    <script>
+        /* -------- Load stored data & theme -------- */
+        window.onload = function () {
+            let storedUser = localStorage.getItem("username");
+            if (storedUser) {
+                document.getElementById("storedUser").innerText =
+                    "Stored Username: " + storedUser;
+            }
+
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark");
+            }
+        };
+
+        /* -------- Email validation -------- */
+        function validateEmail() {
+            let email = document.getElementById("email").value;
+            let error = document.getElementById("emailError");
+
+            if (!email.includes("@")) {
+                error.innerText = "Invalid email format";
+            } else {
+                error.innerText = "Valid email";
+            }
+        }
+
+        /* -------- Phone validation -------- */
+        function validatePhone() {
+            let phone = document.getElementById("phone").value;
+            let error = document.getElementById("phoneError");
+
+            if (phone.length !== 10 || isNaN(phone)) {
+                error.innerText = "Enter exactly 10 digits";
+            } else {
+                error.innerText = "Valid phone number";
+            }
+        }
+
+        /* -------- Password validation -------- */
+        function validatePassword() {
+            let pass = document.getElementById("password").value;
+            let error = document.getElementById("passError");
+
+            if (pass.length < 6) {
+                error.innerText = "Password too short";
+            } else {
+                error.innerText = "Strong password";
+            }
+        }
+
+        /* -------- Store username -------- */
+        function saveUsername() {
+            let username = document.getElementById("username").value;
+            localStorage.setItem("username", username);
+            document.getElementById("storedUser").innerText =
+                "Stored Username: " + username;
+        }
+
+        /* -------- Toggle theme -------- */
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Pre-Lab Experiment-6 Practice</h1>
+
+    <!-- Email -->
+    <input type="text" id="email" placeholder="Enter Email">
+    <button onclick="validateEmail()">Validate Email</button>
+    <div id="emailError" class="error"></div>
+    <br><br>
+
+    <!-- Phone -->
+    <input type="text" id="phone" placeholder="Enter Phone Number">
+    <button onclick="validatePhone()">Validate Phone</button>
+    <div id="phoneError" class="error"></div>
+    <br><br>
+
+    <!-- Password -->
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="validatePassword()">Check Password</button>
+    <div id="passError" class="error"></div>
+    <br><br>
+
+    <!-- Local Storage Username -->
+    <input type="text" id="username" placeholder="Enter Username">
+    <button onclick="saveUsername()">Save Username</button>
+    <p id="storedUser"></p>
+    <br>
+
+    <!-- Theme Toggle -->
+    <button onclick="toggleTheme()">Toggle Dark Mode</button>
+
+</body>
+</html>
