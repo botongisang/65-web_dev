@@ -1,61 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM Manipulation - Dynamic To-Do List</title>
+    <title>Experiment 3 - Flexbox and Grid</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="container">
-        <h1>My Portfolio - To-Do List</h1>
 
-        <!-- To-Do List Section -->
-        <section id="todo-section">
-            <h2>Dynamic To-Do List</h2>
+    <h1>Experiment 3 - Flexbox and Grid</h1>
+    <p class="student-info">Aditya Soni | AIML Dept | St. Francis Institute of Technology</p>
 
-            <div class="todo-input">
-                <input type="text" id="taskInput" placeholder="Enter a new task...">
-                <button id="addBtn" onclick="addTask()">Add Task</button>
-            </div>
-
-            <ul id="todoList">
-                <!-- Tasks will be added here dynamically -->
-            </ul>
-
-            <div class="stats">
-                <p>Total Tasks: <span id="totalTasks">0</span></p>
-                <p>Completed: <span id="completedTasks">0</span></p>
-            </div>
-        </section>
-
-        <!-- DOM Manipulation Demo Section -->
-        <section id="dom-demo">
-            <h2>DOM Manipulation Demo</h2>
-
-            <div id="dynamicContent">
-                <p id="dynamicText">Click buttons to change this text!</p>
-            </div>
-
-            <div class="button-group">
-                <button onclick="changeText()">Change Text</button>
-                <button onclick="changeStyle()">Change Style</button>
-                <button onclick="addClass()">Toggle Highlight</button>
-                <button onclick="resetContent()">Reset</button>
-            </div>
-
-            <div id="elementDemo">
-                <h3>Add/Remove Elements</h3>
-                <button onclick="addElement()">Add Paragraph</button>
-                <button onclick="removeElement()">Remove Last</button>
-                <div id="elementContainer"></div>
-            </div>
-        </section>
+    <h2>Flexbox Layout Demo</h2>
+    <div class="flex-container">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <h2>Grid Layout Demo</h2>
+    <div class="grid-container">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+    </div>
 
+    <footer>
+        <p>Experiment 3 - CSS Flexbox &amp; Grid</p>
+    </footer>
+
+</body>
 </html>

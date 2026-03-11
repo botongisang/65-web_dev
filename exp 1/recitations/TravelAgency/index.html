@@ -3,44 +3,71 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Explore amazing travel destinations and packages with Wanderlust Travel Agency">
-    <title>Wanderlust Travel Agency</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore amazing travel destinations and packages with Horizon Travel Agency">
+    <title>Horizon Travel Agency</title>
 </head>
 
 <body>
-    <h1>Discover Your Next Adventure</h1>
-    <p>Welcome to Wanderlust Travel Agency! We offer incredible travel experiences to the most beautiful destinations
-        around the world. Let us help you create unforgettable memories.</p>
+    <h1>Explore the World with Horizon Travel</h1>
+    <p>At Horizon Travel Agency, we craft unforgettable journeys to the world's most stunning destinations.
+        Whether you seek adventure, relaxation, or cultural immersion, we have the perfect trip for you.</p>
 
-    <h2>Packages</h2>
-    <p>Choose from our carefully curated travel packages designed for every type of traveler:</p>
+    <h2>Our Packages</h2>
+    <p>Select from our handpicked travel experiences:</p>
     <ul>
-        <li><a href="https://www.example.com/group-travels" target="_blank">Group Travels</a></li>
-        <li><a href="https://www.example.com/private-tours" target="_blank">Private Tours</a></li>
+        <li><a href="https://www.example.com/adventure" target="_blank">Adventure Tours</a></li>
+        <li><a href="https://www.example.com/luxury" target="_blank">Luxury Getaways</a></li>
+        <li><a href="https://www.example.com/family" target="_blank">Family Vacations</a></li>
     </ul>
 
-    <h2>Top Itineraries</h2>
+    <h2>Featured Destinations</h2>
 
     <figure>
         <a href="https://www.example.com/italy" target="_blank">
-            <img src="https://cdn.freecodecamp.org/curriculum/labs/colosseo.jpg" alt="The Colosseum in Rome, Italy">
+            <img src="https://cdn.freecodecamp.org/curriculum/labs/colosseo.jpg" alt="The Colosseum in Rome, Italy"
+                width="400">
         </a>
-        <figcaption>Explore the historic Colosseum in Rome, Italy</figcaption>
+        <figcaption>Walk through ancient history at the Colosseum, Rome</figcaption>
     </figure>
 
     <figure>
         <a href="https://www.example.com/alps" target="_blank">
-            <img src="https://cdn.freecodecamp.org/curriculum/labs/alps.jpg" alt="Beautiful Alpine mountains">
+            <img src="https://cdn.freecodecamp.org/curriculum/labs/alps.jpg" alt="Snow-capped Alpine mountains"
+                width="400">
         </a>
-        <figcaption>Experience the breathtaking Alps</figcaption>
+        <figcaption>Breathe in the crisp air of the Alpine mountains</figcaption>
     </figure>
 
     <figure>
         <a href="https://www.example.com/beach" target="_blank">
-            <img src="https://cdn.freecodecamp.org/curriculum/labs/sea.jpg" alt="Crystal clear sea and beach">
+            <img src="https://cdn.freecodecamp.org/curriculum/labs/sea.jpg" alt="Crystal clear Mediterranean sea"
+                width="400">
         </a>
-        <figcaption>Relax by the beautiful Mediterranean Sea</figcaption>
+        <figcaption>Unwind by the sparkling Mediterranean Sea</figcaption>
     </figure>
+
+    <h2>Book Your Trip</h2>
+    <form action="#" method="post">
+        <label for="traveler-name">Your Name:</label><br>
+        <input type="text" id="traveler-name" name="name" placeholder="Enter your name" required><br><br>
+
+        <label for="traveler-email">Email:</label><br>
+        <input type="email" id="traveler-email" name="email" placeholder="Enter your email" required><br><br>
+
+        <label for="destination">Preferred Destination:</label><br>
+        <select id="destination" name="destination">
+            <option value="rome">Rome, Italy</option>
+            <option value="alps">The Alps</option>
+            <option value="mediterranean">Mediterranean Coast</option>
+        </select><br><br>
+
+        <button type="submit">Request Quote</button>
+    </form>
+
+    <footer>
+        <p>&copy; 2026 Horizon Travel Agency. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>

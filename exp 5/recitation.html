@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice - Pre-Lab Experiment-5</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .student-info {
+            text-align: center;
+            color: #777;
+            margin-bottom: 30px;
+        }
+        .exercise {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .exercise h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+        button {
+            padding: 8px 18px;
+            background: #667eea;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px 5px 5px 0;
+        }
+        button:hover { background: #5a6fd6; }
+        input[type="text"] {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        p { margin: 5px 0; }
+        #taskList8 { list-style: none; padding: 0; margin-top: 10px; }
+        #taskList8 li {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            margin-bottom: 5px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Practice - Pre-Lab Experiment-5</h1>
+    <p class="student-info">Aditya Soni | AIML Dept</p>
+
+    <!-- Exercise 3: changeText() -->
+    <div class="exercise">
+        <h3>Exercise 3: Change Text using getElementById</h3>
+        <p id="text3">This is the original paragraph text.</p>
+        <button onclick="changeText()">Change Text</button>
+    </div>
+
+    <!-- Exercise 4: addParagraph() -->
+    <div class="exercise">
+        <h3>Exercise 4: Create and Append a New Paragraph</h3>
+        <div id="container4">
+            <p>Existing paragraph.</p>
+        </div>
+        <button onclick="addParagraph()">Add Paragraph</button>
+    </div>
+
+    <!-- Exercise 5: removeParagraph() -->
+    <div class="exercise">
+        <h3>Exercise 5: Remove an Element by ID</h3>
+        <p id="removable">This paragraph will be removed.</p>
+        <button onclick="removeParagraph()">Remove Paragraph</button>
+    </div>
+
+    <!-- Exercise 6: addEventListener -->
+    <div class="exercise">
+        <h3>Exercise 6: Event Listener with addEventListener</h3>
+        <button id="eventBtn">Click Me (addEventListener)</button>
+        <p id="eventOutput"></p>
+    </div>
+
+    <!-- Exercise 7: showInput() -->
+    <div class="exercise">
+        <h3>Exercise 7: Display User Input Text</h3>
+        <input type="text" id="userInput7" placeholder="Type something...">
+        <button onclick="showInput()">Show Input</button>
+        <p id="display7"></p>
+    </div>
+
+    <!-- Exercise 8: addTask() -->
+    <div class="exercise">
+        <h3>Exercise 8: Simple Task List</h3>
+        <input type="text" id="taskInput8" placeholder="Enter a task...">
+        <button onclick="addTask8()">Add Task</button>
+        <ul id="taskList8"></ul>
+    </div>
+
+    <script>
+        // Exercise 3: Change paragraph text using getElementById
+        function changeText() {
+            document.getElementById("text3").textContent = "The text has been changed using getElementById!";
+        }
+
+        // Exercise 4: Create and append a new paragraph element
+        function addParagraph() {
+            var newP = document.createElement("p");
+            newP.textContent = "This is a newly added paragraph! (Added at: " + new Date().toLocaleTimeString() + ")";
+            document.getElementById("container4").appendChild(newP);
+        }
+
+        // Exercise 5: Remove element by id
+        function removeParagraph() {
+            var elem = document.getElementById("removable");
+            if (elem) {
+                elem.remove();
+            } else {
+                alert("Paragraph already removed!");
+            }
+        }
+
+        // Exercise 6: addEventListener on button
+        document.getElementById("eventBtn").addEventListener("click", function () {
+            document.getElementById("eventOutput").textContent = "Button clicked using addEventListener! Time: " + new Date().toLocaleTimeString();
+        });
+
+        // Exercise 7: Display user input text
+        function showInput() {
+            var value = document.getElementById("userInput7").value;
+            document.getElementById("display7").textContent = "You entered: " + value;
+        }
+
+        // Exercise 8: Simple task list addition
+        function addTask8() {
+            var input = document.getElementById("taskInput8");
+            var task = input.value.trim();
+            if (task === "") {
+                alert("Please enter a task!");
+                return;
+            }
+            var li = document.createElement("li");
+            li.textContent = task;
+            document.getElementById("taskList8").appendChild(li);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>

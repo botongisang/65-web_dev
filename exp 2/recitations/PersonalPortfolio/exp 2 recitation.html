@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web Lab Experiments</title>
+
+<style>
+
+/* GENERAL */
+body{
+    font-family: Arial, sans-serif;
+    background: rosybrown;
+    margin:0;
+    padding:0;
+}
+
+/* ---------------- BUSINESS CARD ---------------- */
+
+.business-card{
+    width:300px;
+    background:white;
+    padding:20px;
+    margin:100px auto;
+    text-align:center;
+    font-size:16px;
+}
+
+.profile-image{
+    max-width:100%;
+}
+
+p{
+    margin:5px 0;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* ---------------- TODO LIST ---------------- */
+
+.todo-list{
+    margin:40px;
+}
+
+.sub-item-link{
+    text-decoration:none;
+}
+
+.sub-item-link:link{
+    color:blue;
+}
+
+.sub-item-link:visited{
+    color:purple;
+}
+
+.sub-item-link:hover{
+    color:red;
+}
+
+.sub-item-link:active{
+    color:green;
+}
+
+.sub-item-link:focus{
+    outline:2px solid orange;
+}
+
+/* ---------------- FORM ---------------- */
+
+.container{
+    margin:40px;
+}
+
+input:focus, textarea:focus{
+    border-color:blue;
+}
+
+input:invalid, select:invalid, textarea:invalid{
+    border-color:red;
+}
+
+input:valid, select:valid, textarea:valid{
+    border-color:green;
+}
+
+button:hover{
+    background:lightgreen;
+}
+
+.radio-group input[type="radio"]:checked{
+    border:2px solid green;
+    background:lightgreen;
+    box-shadow:0 0 5px green;
+}
+
+.radio-group input[type="radio"]:checked + label{
+    color:green;
+}
+
+input:first-of-type{
+    border-radius:10px;
+}
+
+/* ---------------- COLOR BOXES ---------------- */
+
+body{
+    background:#f4f4f4;
+}
+
+.color-grid{
+    display:flex;
+    gap:10px;
+    margin:40px;
+}
+
+.color-box{
+    width:100px;
+    height:100px;
+}
+
+.color1{ background:#ff5733; }
+.color2{ background:rgb(50,150,255); }
+.color3{ background:green; }
+.color4{ background:hsl(200,70%,50%); }
+.color5{ background:orange; }
+
+/* ---------------- FEATURE SELECTION ---------------- */
+
+.feature-card-container{
+    margin:40px;
+}
+
+.feature-card input[type="checkbox"]{
+    appearance:none;
+    width:20px;
+    height:20px;
+    border:2px solid black;
+    margin-right:10px;
+    position:relative;
+}
+
+.feature-card input[type="checkbox"]:checked{
+    background:green;
+    border-color:green;
+}
+
+.feature-card input[type="checkbox"]:checked::after{
+    content:"✓";
+    color:white;
+    position:absolute;
+    left:3px;
+    top:-2px;
+}
+
+/* ---------------- CONFIDENTIAL EMAIL ---------------- */
+
+#email{
+    padding:50px;
+    margin-top:50px;
+    width:500px;
+    border:2px solid black;
+    box-sizing:border-box;
+}
+
+#confidential, #top-secret{
+    display:inline-block;
+    padding:10px;
+    margin-left:10px;
+    border:2px solid red;
+    transform:rotate(-10deg);
+}
+
+.blurred{
+    filter:blur(3px);
+}
+
+/* ---------------- PRICING ---------------- */
+
+.pricing-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.pricing-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    flex:0 0 200px;
+    border:2px solid black;
+    padding:20px;
+}
+
+.basic-plan{ order:0; }
+.pro-plan{ order:1; flex-grow:2; }
+.premium-plan{ order:2; }
+
+/* ---------------- PORTFOLIO ---------------- */
+
+#navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:black;
+}
+
+#navbar a{
+    color:white;
+    margin:10px;
+}
+
+#welcome-section{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+@media(max-width:600px){
+    .pricing-container{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BUSINESS CARD -->
+
+<div class="business-card">
+
+<img class="profile-image" src="https://cdn.freecodecamp.org/curriculum/labs/flower.jpg" alt="profile">
+
+<p class="full-name">Aditya Soni</p>
+<p class="designation">AI/ML Student</p>
+<p class="company">SFIT</p>
+
+<hr>
+
+<p>aditya@email.com</p>
+<p>+91 9999999999</p>
+
+<a class="portfolio-link" href="https://github.com" target="_blank">Portfolio</a>
+
+<hr>
+
+<div class="social-media">
+<h2>Connect with me</h2>
+
+<a href="https://twitter.com">Twitter</a><br>
+<a href="https://linkedin.com">LinkedIn</a><br>
+<a href="https://github.com">GitHub</a>
+
+</div>
+
+</div>
+
+<!-- TODO LIST -->
+
+<ul class="todo-list">
+
+<li>
+<input type="checkbox" id="task1">
+<label for="task1">Study</label>
+
+<ul class="sub-item">
+<li><a class="sub-item-link" href="https://google.com" target="_blank">Notes</a></li>
+</ul>
+
+</li>
+
+<li>
+<input type="checkbox" id="task2">
+<label for="task2">Workout</label>
+
+<ul class="sub-item">
+<li><a class="sub-item-link" href="https://youtube.com" target="_blank">Exercise</a></li>
+</ul>
+
+</li>
+
+<li>
+<input type="checkbox" id="task3">
+<label for="task3">Coding</label>
+
+<ul class="sub-item">
+<li><a class="sub-item-link" href="https://leetcode.com" target="_blank">Practice</a></li>
+</ul>
+
+</li>
+
+<li>
+<input type="checkbox" id="task4">
+<label for="task4">Read</label>
+
+<ul class="sub-item">
+<li><a class="sub-item-link" href="https://wikipedia.org" target="_blank">Article</a></li>
+</ul>
+
+</li>
+
+</ul>
+
+<!-- JOB FORM -->
+
+<div class="container">
+
+<form>
+
+<label for="name">Name</label>
+<input type="text" id="name" required>
+
+<label for="email">Email</label>
+<input type="email" id="email" required>
+
+<label for="position">Position</label>
+<select id="position">
+<option>Developer</option>
+<option>Designer</option>
+<option>Manager</option>
+</select>
+
+<fieldset class="radio-group">
+
+<input type="radio" name="availability" id="full">
+<label for="full">Full Time</label>
+
+<input type="radio" name="availability" id="part">
+<label for="part">Part Time</label>
+
+</fieldset>
+
+<label for="message">Message</label>
+<textarea id="message"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+<!-- COLOR BOXES -->
+
+<div class="color-grid">
+
+<div class="color-box color1"></div>
+<div class="color-box color2"></div>
+<div class="color-box color3"></div>
+<div class="color-box color4"></div>
+<div class="color-box color5"></div>
+
+</div>
+
+<!-- FEATURE SELECTION -->
+
+<h1>Feature Selection</h1>
+
+<div class="feature-card-container">
+
+<label class="feature-card">
+<input type="checkbox"> Feature A
+</label>
+
+<label class="feature-card">
+<input type="checkbox"> Feature B
+</label>
+
+</div>
+
+<!-- CONFIDENTIAL EMAIL -->
+
+<main id="email">
+
+<div id="confidential">CONFIDENTIAL</div>
+<div id="top-secret">TOP SECRET</div>
+
+<p>This email contains <span class="blurred">classified information</span>.</p>
+<p>Please keep this <span class="blurred">secure and private</span>.</p>
+<p>Only authorized <span class="blurred">personnel</span> may read.</p>
+
+</main>
+
+<!-- PRICING -->
+
+<h1>Pricing Plans</h1>
+
+<div class="pricing-container">
+
+<div class="pricing-card basic-plan">
+<h2>Basic</h2>
+<p>$9/month</p>
+</div>
+
+<div class="pricing-card pro-plan">
+<h2>Pro</h2>
+<p>$19/month</p>
+</div>
+
+<div class="pricing-card premium-plan">
+<h2>Premium</h2>
+<p>$29/month</p>
+</div>
+
+</div>
+
+<!-- PORTFOLIO -->
+
+<nav id="navbar">
+<a href="#welcome-section">Home</a>
+<a href="#project-section">Projects</a>
+</nav>
+
+<section id="welcome-section">
+<h1>Welcome to My Portfolio</h1>
+</section>
+
+<section id="project-section">
+<div class="project-tile">
+<a href="#">Project 1</a>
+</div>
+</section>
+
+<a id="profile-link" href="https://github.com" target="_blank">My GitHub</a>
+
+</body>
+</html>

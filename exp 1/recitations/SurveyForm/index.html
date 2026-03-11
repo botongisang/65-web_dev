@@ -4,59 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Student Feedback Survey</title>
 </head>
 
 <body>
-    <h1 id="title">Survey Form</h1>
-    <p id="description">Please take a moment to fill out this survey and help us improve our services.</p>
+    <h1 id="title">Student Feedback Survey</h1>
+    <p id="description">Help us improve the AIML department experience at SFIT. Your feedback matters!</p>
 
-    <form id="survey-form">
-        <label id="name-label" for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <form id="survey-form" action="#" method="post">
+        <label id="name-label" for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="e.g. Aditya Soni" required><br><br>
 
-        <label id="email-label" for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <label id="email-label" for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" placeholder="e.g. aditya@sfit.ac.in" required><br><br>
 
-        <label id="number-label" for="number">Age</label>
-        <input type="number" id="number" name="age" placeholder="Enter your age" min="10" max="120">
+        <label id="number-label" for="number">Age:</label><br>
+        <input type="number" id="number" name="age" placeholder="e.g. 20" min="16" max="30"><br><br>
 
-        <label for="dropdown">Which option best describes your current role?</label>
-        <select id="dropdown" name="role">
-            <option disabled selected value>Select an option</option>
-            <option value="student">Student</option>
-            <option value="job">Full Time Job</option>
-            <option value="learner">Full Time Learner</option>
-            <option value="other">Other</option>
-        </select>
+        <label for="dropdown">Which year are you currently in?</label><br>
+        <select id="dropdown" name="year">
+            <option disabled selected value>Select your year</option>
+            <option value="fe">First Year (FE)</option>
+            <option value="se">Second Year (SE)</option>
+            <option value="te">Third Year (TE)</option>
+            <option value="be">Final Year (BE)</option>
+        </select><br><br>
 
-        <label>Would you recommend our service to a friend?</label>
-        <div class="radio-group">
-            <input type="radio" id="definitely" name="recommend" value="definitely">
-            <label for="definitely">Definitely</label>
-            <input type="radio" id="maybe" name="recommend" value="maybe">
-            <label for="maybe">Maybe</label>
-            <input type="radio" id="not-sure" name="recommend" value="not-sure">
-            <label for="not-sure">Not sure</label>
-        </div>
+        <label>How would you rate the lab facilities?</label><br>
+        <div>
+            <input type="radio" id="excellent" name="rating" value="excellent">
+            <label for="excellent">Excellent</label><br>
+            <input type="radio" id="good" name="rating" value="good">
+            <label for="good">Good</label><br>
+            <input type="radio" id="average" name="rating" value="average">
+            <label for="average">Average</label><br>
+            <input type="radio" id="needs-improvement" name="rating" value="needs-improvement">
+            <label for="needs-improvement">Needs Improvement</label>
+        </div><br>
 
-        <label>What would you like to see improved? (Check all that apply)</label>
-        <div class="checkbox-group">
-            <input type="checkbox" id="frontend" name="improve" value="frontend">
-            <label for="frontend">Front-end Projects</label>
-            <input type="checkbox" id="backend" name="improve" value="backend">
-            <label for="backend">Back-end Projects</label>
-            <input type="checkbox" id="challenges" name="improve" value="challenges">
-            <label for="challenges">Coding Challenges</label>
-            <input type="checkbox" id="community" name="improve" value="community">
-            <label for="community">Community Support</label>
-        </div>
+        <label>Which subjects interest you most? (Check all that apply)</label><br>
+        <div>
+            <input type="checkbox" id="ml" name="interests" value="ml">
+            <label for="ml">Machine Learning</label><br>
+            <input type="checkbox" id="webdev" name="interests" value="webdev">
+            <label for="webdev">Web Development</label><br>
+            <input type="checkbox" id="datascience" name="interests" value="datascience">
+            <label for="datascience">Data Science</label><br>
+            <input type="checkbox" id="appdev" name="interests" value="appdev">
+            <label for="appdev">App Development</label><br>
+            <input type="checkbox" id="cybersec" name="interests" value="cybersec">
+            <label for="cybersec">Cybersecurity</label>
+        </div><br>
 
-        <label for="comments">Any comments or suggestions?</label>
-        <textarea id="comments" name="comments" rows="5" placeholder="Enter your comments here..."></textarea>
+        <label for="suggestions">Any suggestions for improvement?</label><br>
+        <textarea id="suggestions" name="suggestions" rows="5" cols="40" placeholder="Share your thoughts..."></textarea><br><br>
 
-        <button type="submit" id="submit">Submit</button>
+        <button type="submit" id="submit">Submit Feedback</button>
     </form>
 </body>
 

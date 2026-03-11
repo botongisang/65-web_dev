@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Lab Experiment-6</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            padding: 30px;
+            transition: background 0.3s, color 0.3s;
+        }
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .student-info {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+        }
+        .section {
+            background: #16213e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .section h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #ccc;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            padding: 10px 12px;
+            border: 2px solid #333;
+            border-radius: 6px;
+            font-size: 14px;
+            background: #0f3460;
+            color: #e0e0e0;
+            outline: none;
+            margin-bottom: 8px;
+            width: 250px;
+            max-width: 100%;
+        }
+        input:focus { border-color: #667eea; }
+        button {
+            padding: 8px 18px;
+            background: #667eea;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px 5px 5px 0;
+        }
+        button:hover { background: #5a6fd6; }
+        .toggle-btn {
+            background: #e94560;
+        }
+        .toggle-btn:hover { background: #c73650; }
+        .error { color: #dc3545; font-size: 12px; }
+        .success { color: #28a745; font-size: 13px; }
+        .form-group { margin-bottom: 12px; }
+        .saved-area {
+            background: #0f3460;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 15px;
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        body.dark { background: #0a0a0a; }
+        body.dark .section { background: #111; }
+        body.dark input { background: #222; border-color: #444; }
+        body.dark .saved-area { background: #1a1a1a; }
+    </style>
+</head>
+<body>
+    <h1>Pre-Lab Experiment-6</h1>
+    <p class="student-info">Aditya Soni | AIML Dept</p>
+
+    <!-- Username -->
+    <div class="section">
+        <h3>Username (localStorage)</h3>
+        <div class="form-group">
+            <label for="usernameR">Username:</label>
+            <input type="text" id="usernameR" placeholder="Enter username">
+            <button onclick="saveUsername()">Save Username</button>
+        </div>
+        <p id="usernameStatus"></p>
+    </div>
+
+    <!-- Email Validation -->
+    <div class="section">
+        <h3>Email Validation</h3>
+        <div class="form-group">
+            <label for="emailR">Email:</label>
+            <input type="text" id="emailR" placeholder="Enter email">
+            <button onclick="validateEmailR()">Validate Email</button>
+        </div>
+        <p id="emailResult"></p>
+    </div>
+
+    <!-- Phone Validation -->
+    <div class="section">
+        <h3>Phone Validation (10 digits, numeric)</h3>
+        <div class="form-group">
+            <label for="phoneR">Phone:</label>
+            <input type="text" id="phoneR" placeholder="Enter 10-digit number">
+            <button onclick="validatePhoneR()">Validate Phone</button>
+        </div>
+        <p id="phoneResult"></p>
+    </div>
+
+    <!-- Password Validation -->
+    <div class="section">
+        <h3>Password Validation (min 6 chars)</h3>
+        <div class="form-group">
+            <label for="passwordR">Password:</label>
+            <input type="password" id="passwordR" placeholder="Min 6 characters">
+            <button onclick="validatePasswordR()">Validate Password</button>
+        </div>
+        <p id="passwordResult"></p>
+    </div>
+
+    <!-- Form Submit -->
+    <div class="section">
+        <h3>Form Submit - Save and Display</h3>
+        <form id="recitationForm" onsubmit="return handleFormSubmit(event)">
+            <div class="form-group">
+                <label for="formName">Name:</label>
+                <input type="text" id="formName" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label for="formEmail">Email:</label>
+                <input type="text" id="formEmail" placeholder="Your email">
+            </div>
+            <div class="form-group">
+                <label for="formPhone">Phone:</label>
+                <input type="text" id="formPhone" placeholder="Your phone">
+            </div>
+            <div class="form-group">
+                <label for="formPassword">Password:</label>
+                <input type="password" id="formPassword" placeholder="Your password">
+            </div>
+            <button type="submit">Submit Form</button>
+        </form>
+        <p id="formResult"></p>
+        <div class="saved-area" id="savedDisplay">No saved data.</div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="section">
+        <h3>Dark Mode Toggle (persists via localStorage)</h3>
+        <button class="toggle-btn" onclick="toggleTheme()">Toggle Dark Mode</button>
+    </div>
+
+    <script>
+        // On load: restore username and theme from localStorage
+        window.onload = function () {
+            var storedUser = localStorage.getItem("recUsername");
+            if (storedUser) {
+                document.getElementById("usernameR").value = storedUser;
+                var statusEl = document.getElementById("usernameStatus");
+                statusEl.className = "success";
+                statusEl.textContent = "Loaded from localStorage: " + storedUser;
+            }
+
+            var storedTheme = localStorage.getItem("recTheme");
+            if (storedTheme === "dark") {
+                document.body.classList.add("dark");
+            }
+
+            var savedData = localStorage.getItem("recFormData");
+            if (savedData) {
+                var data = JSON.parse(savedData);
+                showSavedData(data);
+            }
+        };
+
+        // Save username
+        function saveUsername() {
+            var name = document.getElementById("usernameR").value.trim();
+            var statusEl = document.getElementById("usernameStatus");
+            if (name === "") {
+                statusEl.className = "error";
+                statusEl.textContent = "Please enter a username.";
+                return;
+            }
+            localStorage.setItem("recUsername", name);
+            statusEl.className = "success";
+            statusEl.textContent = "Username saved: " + name;
+        }
+
+        // Email validation
+        function validateEmailR() {
+            var email = document.getElementById("emailR").value;
+            if (email.indexOf("@") === -1) {
+                document.getElementById("emailResult").innerHTML = '<span class="error">Invalid email - must contain @ symbol.</span>';
+            } else {
+                document.getElementById("emailResult").innerHTML = '<span class="success">Email is valid.</span>';
+            }
+        }
+
+        // Phone validation: exactly 10 digits, numeric only
+        function validatePhoneR() {
+            var phone = document.getElementById("phoneR").value;
+            var phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                document.getElementById("phoneResult").innerHTML = '<span class="error">Invalid phone - must be exactly 10 digits.</span>';
+            } else {
+                document.getElementById("phoneResult").innerHTML = '<span class="success">Phone number is valid.</span>';
+            }
+        }
+
+        // Password validation: min 6 characters
+        function validatePasswordR() {
+            var password = document.getElementById("passwordR").value;
+            if (password.length < 6) {
+                document.getElementById("passwordResult").innerHTML = '<span class="error">Password must be at least 6 characters.</span>';
+            } else {
+                document.getElementById("passwordResult").innerHTML = '<span class="success">Password is valid.</span>';
+            }
+        }
+
+        // Form submit handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("formName").value.trim();
+            var email = document.getElementById("formEmail").value.trim();
+            var phone = document.getElementById("formPhone").value.trim();
+            var password = document.getElementById("formPassword").value;
+
+            // Validate all fields
+            var errors = [];
+            if (name === "") errors.push("Name is required.");
+            if (email.indexOf("@") === -1) errors.push("Email must contain @.");
+            if (!/^\d{10}$/.test(phone)) errors.push("Phone must be 10 digits.");
+            if (password.length < 6) errors.push("Password must be at least 6 chars.");
+
+            if (errors.length > 0) {
+                document.getElementById("formResult").innerHTML = '<span class="error">' + errors.join(" ") + '</span>';
+                return false;
+            }
+
+            var data = { name: name, email: email, phone: phone };
+            localStorage.setItem("recFormData", JSON.stringify(data));
+            document.getElementById("formResult").innerHTML = '<span class="success">Form submitted and data saved!</span>';
+            showSavedData(data);
+            return false;
+        }
+
+        // Display saved data
+        function showSavedData(data) {
+            var display = document.getElementById("savedDisplay");
+            display.textContent = "";
+
+            var nameLabel = document.createElement("strong");
+            nameLabel.textContent = "Name:";
+            display.appendChild(nameLabel);
+            display.appendChild(document.createTextNode(" " + data.name));
+            display.appendChild(document.createElement("br"));
+
+            var emailLabel = document.createElement("strong");
+            emailLabel.textContent = "Email:";
+            display.appendChild(emailLabel);
+            display.appendChild(document.createTextNode(" " + data.email));
+            display.appendChild(document.createElement("br"));
+
+            var phoneLabel = document.createElement("strong");
+            phoneLabel.textContent = "Phone:";
+            display.appendChild(phoneLabel);
+            display.appendChild(document.createTextNode(" " + data.phone));
+        }
+
+        // Dark mode toggle with localStorage persistence
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("recTheme", "dark");
+            } else {
+                localStorage.setItem("recTheme", "light");
+            }
+        }
+    </script>
+</body>
+</html>
